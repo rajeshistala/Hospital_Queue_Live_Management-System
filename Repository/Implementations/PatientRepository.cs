@@ -1,10 +1,11 @@
 ﻿using HQLM_Backend.Data;
 using HQLM_Backend.Models;
+using HQLM_Backend.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace HQLM_Backend.Repository.Implementations
 {
-    public class PatientRepository
+    public class PatientRepository : IPatientRepository
     {
         private readonly HQLMDBContext _context;
 
