@@ -1,7 +1,10 @@
-﻿namespace HQLM_Backend.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace HQLM_Backend.Models
 {
     public class Users
     {
+        [Key]
         public int UserId { get; set; }
 
         public string UserName { get; set; } = string.Empty;

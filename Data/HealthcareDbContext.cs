@@ -15,7 +15,7 @@ namespace HQLM_Backend.Data
 
         public DbSet<Users> Users => Set<Users>();
 
-        public DbSet<Role> Roles => Set<Role>();
+        public DbSet<Roles> Roles => Set<Roles>();
 
         public DbSet<UserRole> UserRoles => Set<UserRole>();
 
@@ -55,10 +55,13 @@ namespace HQLM_Backend.Data
             modelBuilder.Entity<Roles>()
                 .HasKey(r => r.RoleId);
 
-            modelBuilder.Entity<Roles>()
-                .Property(r => r.RoleName)
-                .HasMaxLength(50)
-                .IsRequired();
+            modelBuilder.Entity<Roles>(entity =>
+            {
+                
+                entity.Property(r => r.RoleName)
+                      .IsRequired()
+                      .HasMaxLength(100);
+            });
 
             // UserRole - many-to-many relationship
             modelBuilder.Entity<UserRole>()
